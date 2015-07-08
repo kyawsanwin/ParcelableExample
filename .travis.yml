@@ -17,7 +17,7 @@ android:
   install:
     - true
 
-  script: ./gradlew build
+  script: ./gradlew assemble test
 
   notifications:
     email:
