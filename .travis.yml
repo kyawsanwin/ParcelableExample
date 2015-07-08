@@ -1,16 +1,18 @@
 language: android
 script:
-  - ./gradlew build
+  - "./gradlew uploadDeployGateDebug"
 branches:
   only:
-    - master
+  - master
 android:
   components:
-    - android-22
-    - build-tools-22.0.1
-    - extra-android-support
-    - extra-android-m2repository
-
+  - android-22
+  - build-tools-22.0.1
+  - extra-android-support
+  - extra-android-m2repository
 notifications:
-  email:
-    false
+  email: false
+env:
+  global:
+    - DEPLOYGATE_USER=kyawsanwin
+    - secure: oN/Ea0IpVvh0+VCNDlXbP6KsQSla9qoyuAHg8l7SKtFDyqpjXzXXRV40rEzsj+oLsgsXgLFtwd6M1Cpc8w0iqUd+rMLUahK8nqf2vrsIYttWH0+wUFUPuJdb8zlANTq/YAGNcJ1Rd/D03wfwhJXyXTPsZvFGARA/vBydx9fztagnXOxjYCs0roAyTFAV66basYhgTViAAUyn3pe43v+ls7/5pYt2LLpXK3AsTtFk+QZV3hswC2aNSxj/lk6utFnPHXPGGEesalde8S5VQyCPC9xytdhMyGpqG1CaX3r/Ys/DMF+DHrOyHsG+pBkzDMxWrjZSyfa6qcfNs2cy28pfjV758Fuaw2v+cb9uUNcQlWjR88/0fx/3TouxkUhpWhX7asyjX5rT9M87+Ah05V2DoFpWHmBaN4d++pX5dEY3AF9fhfqkynPwbU78WfsKmrywc2UnyTPCNuV5QuAX8t6NxgsDdqisTmdqldHb3bN4bCCmWRnt9WuORQrkW7lB3oL8nnuaKrzDdTBOUFVBt1gPkd90OdFw15wC9G4pYl8ndabLLrkJMqvjoZlOddzf7WV6NXaChMCvRuOYvc8bx6mx810jONyQkzfGb4Nuiqk/YRRG1PD98k/OIvfuowvuxoNIr0iiJEMQaI9ts6QO5L5OvhNalsz/BDtVt+qoXcZuefM=
