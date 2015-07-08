@@ -1,6 +1,7 @@
 package com.tm.parcelableexample;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,5 +56,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+        Employee employee = new Employee();
+        employee.setName(name.getText().toString());
+        employee.setPosition(position.getText().toString());
+        employee.setDepartment(department.getText().toString());
+        employee.setEmail(email.getText().toString());
+        employee.setPhone(phone.getText().toString());
+
+        Intent intent = new Intent(MainActivity.this, EmployeeDetail.class);
+        intent.putExtra("employee", employee);
+        startActivity(intent);
     }
 }

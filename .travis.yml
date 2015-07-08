@@ -37,5 +37,9 @@ android:
     - emulator -avd test -no-skin -no-audio -no-window &
   install:
     - true
-    
+
   script: "./gradlew build"
+
+  notifications:
+    email:
+      false

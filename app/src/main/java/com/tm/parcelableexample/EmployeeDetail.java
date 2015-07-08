@@ -1,18 +1,36 @@
 package com.tm.parcelableexample;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class EmployeeDetail extends Activity {
 
+    TextView name, positoin, department, email, phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_detail);
+
+        name = (TextView) findViewById(R.id.name);
+        positoin = (TextView) findViewById(R.id.position);
+        department = (TextView) findViewById(R.id.department);
+        email = (TextView) findViewById(R.id.email);
+        phone = (TextView) findViewById(R.id.phone);
+
+        Intent intent = getIntent();
+        Employee employee = intent.getParcelableExtra("employee");
+
+        name.setText(employee.getName());
+        positoin.setText(employee.getPosition());
+        department.setText(employee.getDepartment());
+        email.setText(employee.getEmail());
+        phone.setText(employee.getPhone());
+
     }
 
     @Override
