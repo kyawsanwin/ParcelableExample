@@ -6,13 +6,17 @@ android:
     - extra-android-support
     - extra-android-m2repository
 
+  jdk:
+    - oraclejdk7
+    - oraclejdk8
+
   branches:
     only:
       - master
 
   install:
     - true
-    
+
   script: ./gradlew build
 
   notifications:
