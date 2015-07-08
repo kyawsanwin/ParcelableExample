@@ -10,8 +10,10 @@ android:
     only:
       - master
 
-  script:
-    - ./gradlew build
+  install:
+    - true
+    
+  script: ./gradlew build
 
   notifications:
     email:
