@@ -1,4 +1,9 @@
 language: android
+script:
+  - ./gradlew build
+branches:
+  only:
+    - master
 android:
   components:
     - android-22
@@ -6,19 +11,10 @@ android:
     - extra-android-support
     - extra-android-m2repository
 
-  jdk:
-    - oraclejdk7
-    - oraclejdk8
+jdk:
+  - oraclejdk7
+  - oraclejdk8
 
-  branches:
-    only:
-      - master
-
-  install:
-    - true
-
-  script: ./gradlew assemble test
-
-  notifications:
-    email:
-      false
+notifications:
+  email:
+    false
