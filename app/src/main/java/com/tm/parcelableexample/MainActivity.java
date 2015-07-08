@@ -1,17 +1,33 @@
 package com.tm.parcelableexample;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity implements View.OnClickListener {
+
+    EditText name, position, department, email, phone;
+    Button btnSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        name = (EditText) findViewById(R.id.name);
+        position = (EditText) findViewById(R.id.position);
+        department = (EditText) findViewById(R.id.department);
+        email = (EditText) findViewById(R.id.email);
+        phone = (EditText) findViewById(R.id.phone);
+
+        btnSubmit = (Button) findViewById(R.id.submit);
+
+        btnSubmit.setOnClickListener(this);
     }
 
     @Override
@@ -34,5 +50,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        
     }
 }
