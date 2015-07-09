@@ -1,5 +1,6 @@
 language: android
 script:
+  - "./gradlew build"
   - "./gradlew uploadDeployGateDebug"
 branches:
   only:
