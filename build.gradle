@@ -21,7 +21,7 @@ deploygate {
 
     apks {
         debug {
-            sourceFile = file("${project.buildDir}/apk/app-debug-unaligned.apk")
+            sourceFile = file("${project.projectDir}/app/build/outputs/apk/app-debug-unaligned.apk")
         }
     }
 }
