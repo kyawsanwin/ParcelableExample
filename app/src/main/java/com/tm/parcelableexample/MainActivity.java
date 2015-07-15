@@ -15,8 +15,7 @@ import butterknife.OnClick;
 
 
 public class MainActivity extends Activity {
-
-    Button btnSubmit;
+    
     @Bind(R.id.name) EditText name;
     @Bind(R.id.position) EditText position;
     @Bind(R.id.department) EditText department;
