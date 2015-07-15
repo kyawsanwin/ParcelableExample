@@ -9,26 +9,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class MainActivity extends Activity implements View.OnClickListener {
 
-    EditText name, position, department, email, phone;
+public class MainActivity extends Activity {
+
     Button btnSubmit;
+    @Bind(R.id.name) EditText name;
+    @Bind(R.id.position) EditText position;
+    @Bind(R.id.department) EditText department;
+    @Bind(R.id.email) EditText email;
+    @Bind(R.id.phone) EditText phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = (EditText) findViewById(R.id.name);
-        position = (EditText) findViewById(R.id.position);
-        department = (EditText) findViewById(R.id.department);
-        email = (EditText) findViewById(R.id.email);
-        phone = (EditText) findViewById(R.id.phone);
-
-        btnSubmit = (Button) findViewById(R.id.submit);
-
-        btnSubmit.setOnClickListener(this);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -53,8 +53,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View view) {
+    @OnClick(R.id.submit)
+    void submit(View view) {
 
         Employee employee = new Employee();
         employee.setName(name.getText().toString());
