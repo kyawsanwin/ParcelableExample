@@ -39,5 +39,6 @@ allprojects {
 
 slack {
     url 'https://hooks.slack.com/services/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'
+    dependsOnTasks 'assemble'
     title 'Android Testing For CI'
 }
