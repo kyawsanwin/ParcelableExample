@@ -10,7 +10,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
         classpath 'com.deploygate:gradle:0.6'
-        classpath 'com.github.Mindera:gradle-slack-plugin:1.0.4'
+        //classpath 'com.github.Mindera:gradle-slack-plugin:1.0.4'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -18,7 +18,7 @@ buildscript {
 }
 
 apply plugin: 'deploygate'
-apply plugin: 'com.mindera.gradle.slack'
+//apply plugin: 'com.mindera.gradle.slack'
 
 deploygate {
     userName = "$System.env.DEPLOYGATE_USER"
@@ -37,8 +37,8 @@ allprojects {
     }
 }
 
-slack {
+/*slack {
     url 'https://hooks.slack.com/services/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'
     dependsOnTasks 'assemble'
     title 'Android Testing For CI'
-}
+}*/
