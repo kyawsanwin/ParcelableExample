@@ -3,19 +3,25 @@
 #
 
 general:
-    artifacts:
-        - /home/ubuntu/ParcelableExample/app/build/outputs/apk/
-
+  branches:
+    only:
+      - master
+  artifacts:
+    - "app/build/outputs/apk/app-release-unsigned.apk"
 machine:
-    environment:
-        ANDROID_HOME: /usr/local/android-sdk-linux
-
+  java:
+    version: openjdk7
+  environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
 dependencies:
-    override:
-        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-19.1.0,android-19,extra-google-m2repository,extra-google-google_play_services,extra-android-support
-        - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
-
+  override:
+    - echo y | android update sdk --no-ui --filter "android-21,build-tools-21.1.2"
 test:
-    override:
-        - (./gradlew assemble):
-            timeout: 360
+  override:
+    - echo "Nothing to do here"
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./gradlew assembleRelease
+      - curl -F "file=@app/build/outputs/apk/app-release-unsigned.apk" -F "token=${DEPLOY_GATE_API_KEY}" -F "message=sample" https://deploygate.com/api/users/kyawsanwin/apps
